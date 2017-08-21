@@ -1,0 +1,6 @@
+Editor configurations:
+ * Use two spaces for indent
+ * Use LF as end of line
+ * Use UTF-8 for charset encoding
+ * Trim trailing whitespace, except for Markdown files
+ * Insert a new line at the end
