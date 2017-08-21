@@ -3,6 +3,7 @@
   "prettier.eslintIntegration": false,
   "tslint.enable": true,
   "typescript.format.enable": false,
+  "eslint.enable": false,
   "files.associations": {
     ".lintstagedrc": "json",
     ".nycrc": "json"
