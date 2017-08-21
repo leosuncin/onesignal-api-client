@@ -1,0 +1,4 @@
+{
+  "*.js": ["prettier --write", "tslint -p .", "git add -u"],
+  "*.json": ["prettier --write", "git add -u"]
+}
