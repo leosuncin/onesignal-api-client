@@ -1,0 +1,11 @@
+Project configurations:
+ * Format on save
+ * Use `prettier` format
+ * Enable `tslint`
+ * Exclude `dist` directory from searchs
+ * Set correct file associations
+Add NPM tasks
+Add launch debug settings
+ * Launch Mocha on inspect/debug mode
+ * Attach to a running process inspector
+Add recommended extensios for this project
