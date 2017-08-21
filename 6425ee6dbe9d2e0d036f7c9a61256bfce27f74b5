@@ -1,0 +1,20 @@
+Dependencies:
+ * Use `got` for make requests
+ * Use `typescript` for write the source code
+ * Use `mocha` for running test
+   - Use `ts-node` for write test in Typescript
+   - Use `source-map-support` for sourceMap in code coverage
+   - Use Instanbul for code coverage
+   - Use `nock` for intercepts request on tests
+   - Use `chai` as assertion/spec library
+ * Use `tslint` for linting Typescript source code
+   - Use Microsoft code style
+   - Integrate with `prettier`
+ * Use `husky` tool for git hooks
+   - Use `lint-staged` for format, lint source code before commit
+ * Use prettier for format source code
+ * Add NPM script for transpile Typescript before publish
+   - Delete previous distribution using `rimraf`
+   - Set required setting in `package.json`
+   - Exclude `lib` directory from published version
+   - Generate typings when build
