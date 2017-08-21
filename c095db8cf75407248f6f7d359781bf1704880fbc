@@ -1,0 +1,9 @@
+Ignore common files from:
+ * Linux
+ * Windows
+ * MacOS
+ * Visual Studio Code
+ * Sublime Text
+ * JetBrains
+
+Ignore transpiled files in `dist` directory
