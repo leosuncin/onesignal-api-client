@@ -1,0 +1,4 @@
+Use `proxyquire` for stub dependencies, `sinon` for stub and spy call functions
+
+Check if `app_id` and `secret_key` are passed as parameters before make requests
+Check if API client can send requests for create notification
