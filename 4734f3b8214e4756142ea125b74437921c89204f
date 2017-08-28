@@ -1,0 +1,1 @@
+Use `proxyquire` for stub dependencies and `sinon` for stub and spy call functions
