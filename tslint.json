@@ -6,6 +6,9 @@
     "tslint-config-prettier"
   ],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "strict-boolean-expressions": [true, "allow-string", "allow-mix"],
+    "no-unsafe-any": false
+  },
   "rulesDirectory": []
 }

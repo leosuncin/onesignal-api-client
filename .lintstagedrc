@@ -1,4 +1,8 @@
 {
-  "*.js": ["prettier --write", "tslint -p .", "git add -u"],
+  "*.ts": [
+    "prettier --write",
+    "tslint -s node_modules/custom-tslint-formatters/formatters -t grouped",
+    "git add -u"
+  ],
   "*.json": ["prettier --write", "git add -u"]
 }
