@@ -1,0 +1,5 @@
+Amend lintstaged configuration replace .js extension for .ts
+Install custom formatters for TSLint
+Update TSLint rules
+Use differents formatters for show TSLint output
+Lint files before run build script in Travis CI
