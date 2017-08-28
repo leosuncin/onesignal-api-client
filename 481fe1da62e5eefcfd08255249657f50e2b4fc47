@@ -1,0 +1,2 @@
+Test if `app_id` and `secret_key` are passed as parameters
+Test if could create notifications through API
