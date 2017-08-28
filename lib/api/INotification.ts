@@ -31,7 +31,7 @@ export interface INotification {
    * @type {string[]}
    * @memberof INotification
    */
-  included_segments?: string[];
+  included_segments: string[];
   /**
    * Segment that will be excluded when sending.
    * Users in these segments will not receive a notification.
