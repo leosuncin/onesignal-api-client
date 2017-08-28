@@ -33,6 +33,5 @@ branches:
   - develop
 
 after_success:
-- npx nyc report --reporter=text-lcov > coverage.lcov
-- codeclimate-test-reporter < coverage.lcov
-- bash <(curl -s https://codecov.io/bash)
+- codeclimate-test-reporter < coverage/lcov.info
+- bash < (curl -s https://codecov.io/bash)
