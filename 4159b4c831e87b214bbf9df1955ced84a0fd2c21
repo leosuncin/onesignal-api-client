@@ -1,0 +1,6 @@
+Include JSDoc for every function, class interface, etc.
+Use interface for ensure type checking
+
+TODOS:
+Resolve absolute path issue when build Javascript
+Maybe use **RollUp**
