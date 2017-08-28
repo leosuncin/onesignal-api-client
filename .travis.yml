@@ -5,6 +5,10 @@ node_js:
 - 6
 - 4
 
+before_install:
+- npm install -g codeclimate-test-reporter npx
+
+
 install:
 - npm install
 
@@ -12,7 +16,7 @@ before_script:
 - npm run lint
 
 script:
-- npm run build
+- npm test && npm run build
 
 sudo: false
 
@@ -27,3 +31,8 @@ branches:
   only:
   - master
   - develop
+
+after_success:
+- npx nyc report --reporter=text-lcov > coverage.lcov
+- codeclimate-test-reporter < coverage.lcov
+- bash <(curl -s https://codecov.io/bash)
