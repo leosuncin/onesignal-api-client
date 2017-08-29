@@ -1,5 +1,9 @@
-import { INotification } from "api/INotification";
 import { sendNotification } from "api/sendNotification";
+import {
+  INotificationDevices,
+  INotificationFilters,
+  INotificationSegments
+} from "interfaces/notification";
 
 /**
  * Closure for One Signal API
@@ -25,7 +29,12 @@ export interface IRestApi {
    * @returns {Promise<object>}
    * @memberof IRestApi
    */
-  sendNotification(notification: INotification): Promise<object>;
+  sendNotification(
+    notification:
+      | INotificationDevices
+      | INotificationFilters
+      | INotificationSegments
+  ): Promise<object>;
 }
 
 /**
@@ -45,7 +54,12 @@ export function oneSignalApi(appId: string, secretKey: string): IRestApi {
   }
 
   return {
-    async sendNotification(notification: INotification): Promise<object> {
+    async sendNotification(
+      notification:
+        | INotificationDevices
+        | INotificationFilters
+        | INotificationSegments
+    ): Promise<object> {
       return sendNotification(
         secretKey,
         Object.assign(notification, { app_id: appId })

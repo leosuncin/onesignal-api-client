@@ -1,6 +1,10 @@
 import * as request from "got";
 
-import { INotification } from "api/INotification";
+import {
+  INotificationDevicesStrict as INotificationDevices,
+  INotificationFiltersStrict as INotificationFilters,
+  INotificationSegmentsStrict as INotificationSegments
+} from "interfaces/notification";
 import { BASE_URL } from "values";
 
 const URL: string = `${BASE_URL}/notifications`;
@@ -15,7 +19,10 @@ const URL: string = `${BASE_URL}/notifications`;
  */
 export async function sendNotification(
   secretKey: string,
-  notification: INotification
+  notification:
+    | INotificationSegments
+    | INotificationFilters
+    | INotificationDevices
 ): Promise<object> {
   try {
     const response: { body: object } = await request.post(URL, {

@@ -41,7 +41,6 @@ describe("Make requests to OneSignal API", () => {
     const client: IRestApi = api.oneSignalApi(appId, secretKey);
     client
       .sendNotification({
-        app_id: appId,
         contents: {
           en:
             "Truth decrepit intentions pious good justice disgust free disgust oneself morality faithful victorious."
