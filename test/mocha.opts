@@ -4,4 +4,4 @@
 --colors
 --timeout 2500
 --ui tdd
-lib/**/*.spec.ts
+./**/*.spec.ts

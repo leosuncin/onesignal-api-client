@@ -22,7 +22,7 @@ describe("Make requests to OneSignal API", () => {
     });
     success = sinon.spy();
     fail = sinon.spy();
-    api = proxyquire.noCallThru().noPreserveCache().load("./Client", {
+    api = proxyquire.noCallThru().noPreserveCache().load("../lib/Client", {
       "api/sendNotification": { sendNotification }
     });
   });
