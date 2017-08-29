@@ -111,7 +111,8 @@ describe("Send notifications", () => {
       contents: {
         en:
           "Eternal-return hatred ubermensch marvelous truth against law selfish faith philosophy spirit philosophy passion."
-      }
+      },
+      included_segments: ["All"]
     })
       .then(done)
       .catch((error: Error) => {
