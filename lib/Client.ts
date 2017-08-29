@@ -1,4 +1,4 @@
-import { sendNotification } from "api/sendNotification";
+import { cancelNotification, sendNotification } from "api";
 import {
   INotificationDevices,
   INotificationFilters,
@@ -25,7 +25,7 @@ export interface IRestApi {
   /**
    * Send notification to users
    *
-   * @param {INotification} notification
+   * @param {INotification} notification The notification to send
    * @returns {Promise<object>}
    * @memberof IRestApi
    */
@@ -35,6 +35,14 @@ export interface IRestApi {
       | INotificationFilters
       | INotificationSegments
   ): Promise<object>;
+  /**
+   * Stop a scheduled or currently outgoing notification
+   *
+   * @param {string} notificationId Notification identifier
+   * @returns {Promise<object>}
+   * @memberof IRestApi
+   */
+  cancelNotification(notificationId: string): Promise<object>;
 }
 
 /**
@@ -64,6 +72,7 @@ export function oneSignalApi(appId: string, secretKey: string): IRestApi {
         secretKey,
         Object.assign(notification, { app_id: appId })
       );
-    }
+    },
+    cancelNotification: cancelNotification.bind(null, secretKey, appId)
   };
 }

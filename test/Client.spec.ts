@@ -11,6 +11,7 @@ describe("Make requests to OneSignal API", () => {
   const appId: string = "0c8383d1-68e9-4c8b-b2c5-5716454a9ab7"; // Don't copy this, is a random value
   const secretKey: string = "YjhmMzFlNTAtNWYxOC00YzU1LWI3NGUtM2U4Y2I5NDA3YmQw"; // Don't copy this, is a random value
   let api: { oneSignalApi: IOneSignalApi };
+  let cancelNotification: sinon.SinonStub;
   let fail: sinon.SinonSpy;
   let sendNotification: sinon.SinonStub;
   let success: sinon.SinonSpy;
@@ -20,10 +21,11 @@ describe("Make requests to OneSignal API", () => {
       id: "d76659a1-134e-4af5-a15f-8b7085f7dd15",
       recipients: 3
     });
+    cancelNotification = sinon.stub().resolves({ success: true });
     success = sinon.spy();
     fail = sinon.spy();
     api = proxyquire.noCallThru().noPreserveCache().load("../lib/Client", {
-      "api/sendNotification": { sendNotification }
+      api: { cancelNotification, sendNotification }
     });
   });
 
@@ -61,6 +63,27 @@ describe("Make requests to OneSignal API", () => {
     expect(sendNotification.calledBefore(fail)).to.be.equal(
       true,
       "Expected to execute sendNotification before of reject the promise"
+    );
+  });
+
+  it("Should cancel a notification", () => {
+    const client: IRestApi = api.oneSignalApi(appId, secretKey);
+    client
+      .cancelNotification("69cbefdb-b8b1-41c3-badf-03e3f6e3b386")
+      .then(success)
+      .catch(fail);
+
+    expect(cancelNotification.called).to.be.equal(
+      true,
+      "Expected to execute cancelNotification"
+    );
+    expect(cancelNotification.calledBefore(success)).to.be.equal(
+      true,
+      "Expected to execute cancelNotification before of resolve the promise"
+    );
+    expect(cancelNotification.calledBefore(fail)).to.be.equal(
+      true,
+      "Expected to execute cancelNotification before of reject the promise"
     );
   });
 });

@@ -9,10 +9,10 @@ export interface IDelivery {
   /**
    * Schedule notification for future delivery.
    *
-   * @type {Date}
+   * @type {Date | string}
    * @memberof IDelivery
    */
-  send_after?: Date;
+  send_after?: Date | string;
   /**
    * Possible values are:
    *    "timezone"    Deliver at a specific time-of-day in each users own timezone
