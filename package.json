@@ -12,6 +12,7 @@
     "prebuild": "rimraf dist",
     "precommit": "lint-staged",
     "prepublishOnly": "npm run build",
+    "prepush": "npm run lint && npm test",
     "prettier": "prettier --write",
     "test": "nyc mocha --opts mocha.opts"
   },
