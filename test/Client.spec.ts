@@ -5,6 +5,7 @@ import * as proxyquire from "proxyquire";
 import * as sinon from "sinon";
 
 import { IOneSignalApi, IRestApi } from "Client";
+import { INotificationSegments } from "interfaces/notification";
 import { SERVER_URL } from "values";
 
 describe("Make requests to OneSignal API", () => {
@@ -41,17 +42,20 @@ describe("Make requests to OneSignal API", () => {
 
   it("Should send a create notification request", () => {
     const client: IRestApi = api.oneSignalApi(appId, secretKey);
-    client
-      .sendNotification({
-        contents: {
-          en:
-            "Truth decrepit intentions pious good justice disgust free disgust oneself morality faithful victorious."
-        },
-        included_segments: ["All Users"]
-      })
-      .then(success)
-      .catch(fail);
+    const notification: INotificationSegments = {
+      contents: {
+        en:
+          "Truth decrepit intentions pious good justice disgust free disgust oneself morality faithful victorious."
+      },
+      included_segments: ["All Users"]
+    };
 
+    client.sendNotification(notification).then(success).catch(fail);
+
+    expect(sendNotification.calledWith(secretKey, notification)).to.be.equal(
+      true,
+      `Expected to be called with ${secretKey} and ${notification}`
+    );
     expect(sendNotification.called).to.be.equal(
       true,
       "Expected to execute sendNotification"
@@ -67,12 +71,17 @@ describe("Make requests to OneSignal API", () => {
   });
 
   it("Should cancel a notification", () => {
+    const notificationId: string = "69cbefdb-b8b1-41c3-badf-03e3f6e3b386";
     const client: IRestApi = api.oneSignalApi(appId, secretKey);
-    client
-      .cancelNotification("69cbefdb-b8b1-41c3-badf-03e3f6e3b386")
-      .then(success)
-      .catch(fail);
 
+    client.cancelNotification(notificationId).then(success).catch(fail);
+
+    expect(
+      cancelNotification.calledWith(secretKey, appId, notificationId)
+    ).to.be.equal(
+      true,
+      `Expected to be called with ${secretKey}, ${appId} and ${notificationId}`
+    );
     expect(cancelNotification.called).to.be.equal(
       true,
       "Expected to execute cancelNotification"
