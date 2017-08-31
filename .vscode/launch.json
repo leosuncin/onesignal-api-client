@@ -7,7 +7,7 @@
       "protocol": "inspector",
       "name": "Mocha Tests",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-      "args": ["--opts", "mocha.opts", "--timeout", "999999"],
+      "args": ["--timeout", "999999"],
       "internalConsoleOptions": "openOnSessionStart"
     },
     {
