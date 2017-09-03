@@ -11,12 +11,32 @@ export interface IContent {
   /**
    * The notification's content (excluding the title), a map of language codes to text for each language.
    *
-   * @type {Ii18n}
+   * @type {{
+   *     en: string;
+   *     [lang: string]: string;
+   *   }}
    * @memberof IContent
    * @example JSON
    * {"en": "English Message", "es": "Mensaje en Español"}
    */
-  contents: Ii18n;
+  contents: {
+    /**
+     * English language content
+     *
+     * @type {string}
+     * @memberof Ii18n
+     */
+    en: string;
+
+    /**
+     * Two letters language code
+     *
+     * @see https://documentation.onesignal.com/docs/language-localization
+     * @type {[lang: string]: string}
+     * @memberof Ii18n
+     */
+    [lang: string]: string;
+  };
   /**
    * The notification's title, a map of language codes to text for each language.
    *
