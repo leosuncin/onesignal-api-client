@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc --pretty",
     "cm": "git-cz",
+    "commitmsg": "commitlint -e",
     "lint": "tslint -p . --type-check -t stylish",
     "postmerge": "npm install",
     "prebuild": "rimraf dist",
@@ -41,6 +42,7 @@
     "got": "^7.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^4.1.1",
     "@types/chai": "^4.0.3",
     "@types/mocha": "^2.2.41",
     "@types/nock": "^8.2.1",
