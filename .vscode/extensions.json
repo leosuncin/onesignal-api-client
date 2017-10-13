@@ -1,14 +1,15 @@
 {
   "recommendations": [
-    "EditorConfig.editorconfig",
     "adammaras.overtype",
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
     "donjayamanne.git-extension-pack",
+    "EditorConfig.editorconfig",
     "eg2.tslint",
     "esbenp.prettier-vscode",
     "fknop.vscode-npm",
     "joelday.docthis",
+    "KnisterPeter.vscode-commitizen",
     "wmaurer.change-case"
   ]
 }
