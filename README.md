@@ -8,6 +8,7 @@
 ![Stability](https://img.shields.io/badge/stability-WIP-red.svg?style=flat)
 [![License](https://img.shields.io/github/license/leosuncin/onesignal-api-client.svg?style=flat)](https://github.com/leosuncin/onesignal-api-client/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat)](http://commitizen.github.io/cz-cli/)
+[![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat)](https://github.com/semantic-release/semantic-release)
 
 > Unofficial OneSignal API client for Node.js
 > Work in progress
