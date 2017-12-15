@@ -63,7 +63,7 @@
     "prettier": "^1.5.3",
     "proxyquire": "^1.8.0",
     "rimraf": "^2.6.1",
-    "rollup": "^0.50.0",
+    "rollup": "^0.52.2",
     "rollup-plugin-typescript2": "^0.8.4",
     "semantic-release": "^8.2.3",
     "sinon": "^4.1.3",
