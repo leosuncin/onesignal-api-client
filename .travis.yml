@@ -8,12 +8,13 @@ node_js:
 - node
 
 before_install:
-- npm install -g codeclimate-test-reporter npx
+- npm install -g codeclimate-test-reporter npx greenkeeper-lockfile@1
 
 install:
 - npm install
 
 before_script:
+- greenkeeper-lockfile-update
 - npm prune
 - npm run -s lint
 
@@ -33,6 +34,7 @@ branches:
   - /^greenkeeper/.*$/
 
 after_success:
+- greenkeeper-lockfile-upload
 - codeclimate-test-reporter < coverage/lcov.info
 - bash <(curl -s https://codecov.io/bash)
 - npm run -s semantic-release
