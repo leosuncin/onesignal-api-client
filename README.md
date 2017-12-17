@@ -1,4 +1,6 @@
 # Unofficial OneSignal API Client
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/leosuncin/onesignal-api-client.svg)](https://greenkeeper.io/)
 [![Build Status](https://img.shields.io/travis/leosuncin/onesignal-api-client.svg?style=flat)](https://travis-ci.org/leosuncin/onesignal-api-client)
 [![Dependency Status](https://img.shields.io/david/leosuncin/onesignal-api-client.svg?style=flat)](https://david-dm.org/leosuncin/onesignal-api-client)
 [![devDependency Status](https://img.shields.io/david/dev/leosuncin/onesignal-api-client.svg?style=flat)](https://david-dm.org/leosuncin/onesignal-api-client#info=devDependencies)
