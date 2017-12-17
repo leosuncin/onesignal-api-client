@@ -16,7 +16,8 @@
     "prepublishOnly": "rollup -c rollup.config.js",
     "prepush": "npm run lint && npm test",
     "prettier": "prettier --write",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release":
+      "semantic-release pre && npm publish && semantic-release post",
     "test": "nyc mocha"
   },
   "files": ["dist/", "README.md", "LICENSE"],
@@ -32,7 +33,8 @@
     "Promise",
     "REST"
   ],
-  "author": "Jaime Leonardo Suncin Cruz <leosuncin@gmail.com> (https://leosuncin.github.io)",
+  "author":
+    "Jaime Leonardo Suncin Cruz <leosuncin@gmail.com> (https://leosuncin.github.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/leosuncin/onesignal-api-client/issues"
