@@ -46,7 +46,7 @@
     "got": "^8.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^5.2.5",
+    "@commitlint/cli": "^6.0.0",
     "@commitlint/config-conventional": "^5.2.3",
     "@types/chai": "^4.0.3",
     "@types/mocha": "^2.2.41",
