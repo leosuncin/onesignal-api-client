@@ -8,9 +8,9 @@
       "resolved": "https://registry.npmjs.org/@types/got/-/got-7.1.6.tgz"
     },
     "@types/node": {
-      "version": "8.5.1",
-      "from": "@types/node@>=8.0.24 <9.0.0",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.5.1.tgz"
+      "version": "9.3.0",
+      "from": "@types/node@>=9.3.0 <10.0.0",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-9.3.0.tgz"
     },
     "arr-diff": {
       "version": "2.0.0",
