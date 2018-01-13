@@ -9,7 +9,7 @@
     },
     "@types/node": {
       "version": "9.3.0",
-      "from": "@types/node@>=9.3.0 <10.0.0",
+      "from": "https://registry.npmjs.org/@types/node/-/node-9.3.0.tgz",
       "resolved": "https://registry.npmjs.org/@types/node/-/node-9.3.0.tgz"
     },
     "arr-diff": {
