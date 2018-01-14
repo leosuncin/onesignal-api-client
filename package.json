@@ -7,9 +7,9 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --pretty",
-    "cm": "git-cz",
+    "cz": "git-cz",
     "commitmsg": "commitlint -e",
-    "lint": "tslint -p . --type-check -t stylish",
+    "lint": "tslint -p . -t stylish",
     "postmerge": "npm install",
     "prebuild": "rimraf dist",
     "precommit": "lint-staged",
