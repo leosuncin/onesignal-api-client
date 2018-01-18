@@ -8,7 +8,9 @@
   "jsRules": {},
   "rules": {
     "strict-boolean-expressions": [true, "allow-string", "allow-mix"],
-    "no-unsafe-any": false
+    "no-unsafe-any": false,
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": [true, "api", "interfaces", "values"]
   },
   "rulesDirectory": []
 }

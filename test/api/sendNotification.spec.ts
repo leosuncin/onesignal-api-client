@@ -17,10 +17,25 @@ describe("Send notifications", () => {
       .reply(function(
         this: nock.Scope,
         uri: string,
-        body: string
+        body: any // tslint:disable-line:no-any
       ): nock.ReplyCallbackResult {
         const { headers: { authorization } } = this["req"]; // tslint:disable-line no-invalid-this no-string-literal
         if (authorization && /^Basic\s+.+/.test(authorization)) {
+          if (
+            !Object.prototype.hasOwnProperty.call(body, "contents") ||
+            (Object.prototype.hasOwnProperty.call(body, "contents") &&
+              !Object.prototype.hasOwnProperty.call(body.contents, "en"))
+          ) {
+            return [
+              400,
+              {
+                errors: [
+                  "Message Notifications must have English language content"
+                ]
+              }
+            ];
+          }
+
           return [
             201,
             { id: "d76659a1-134e-4af5-a15f-8b7085f7dd15", recipients: 3 }
@@ -48,11 +63,15 @@ describe("Send notifications", () => {
         en:
           "Truth decrepit intentions pious good justice disgust free disgust oneself morality faithful victorious."
       },
-      included_segments: ["All Users"]
+      included_segments: ["All"]
     });
     expect(result).to.be.a("object");
-    expect(result).has.property("id").with.a("string");
-    expect(result).has.property("recipients").with.a("number");
+    expect(result)
+      .has.property("id")
+      .with.a("string");
+    expect(result)
+      .has.property("recipients")
+      .with.a("number");
   });
 
   it("Should send by segment", async () => {
@@ -65,8 +84,12 @@ describe("Send notifications", () => {
       included_segments: ["Active Users"]
     });
     expect(result).to.be.a("object");
-    expect(result).has.property("id").with.a("string");
-    expect(result).has.property("recipients").with.a("number");
+    expect(result)
+      .has.property("id")
+      .with.a("string");
+    expect(result)
+      .has.property("recipients")
+      .with.a("number");
   });
 
   it("Should send by filter", async () => {
@@ -74,7 +97,9 @@ describe("Send notifications", () => {
       app_id: appId,
       contents: {
         en:
-          "Christianity salvation burying marvelous grandeur god ocean sea pious spirit ultimate insofar of."
+          "Christianity salvation burying marvelous grandeur god ocean sea pious spirit ultimate insofar of.",
+        es:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       },
       filters: [
         { field: "tag", key: "level", relation: "=", value: "10" },
@@ -83,8 +108,12 @@ describe("Send notifications", () => {
       ]
     });
     expect(result).to.be.a("object");
-    expect(result).has.property("id").with.a("string");
-    expect(result).has.property("recipients").with.a("number");
+    expect(result)
+      .has.property("id")
+      .with.a("string");
+    expect(result)
+      .has.property("recipients")
+      .with.a("number");
   });
 
   it("Should send by device", async () => {
@@ -101,8 +130,12 @@ describe("Send notifications", () => {
       ]
     });
     expect(result).to.be.a("object");
-    expect(result).has.property("id").with.a("string");
-    expect(result).has.property("recipients").with.a("number");
+    expect(result)
+      .has.property("id")
+      .with.a("string");
+    expect(result)
+      .has.property("recipients")
+      .with.a("number");
   });
 
   it("Should fail when REST API KEY isn't passed", (done: MochaDone) => {
@@ -117,7 +150,33 @@ describe("Send notifications", () => {
       .then(done)
       .catch((error: Error) => {
         expect(error).to.be.a("error");
-        expect(error).has.property("message").with.a("string");
+        expect(error)
+          .has.property("message")
+          .with.a("string");
+        expect(error).has.property("stack");
+        done();
+      });
+  });
+
+  it("Should fail when notification's content doesn't have a english language", (
+    done: MochaDone
+  ) => {
+    sendNotification(
+      secret,
+      JSON.parse(`{
+        "app_id": "${appId}",
+        "contents": {
+          "es": "Ni tampoco hay nadie que ame, persiga y quiera alcanzar el dolor mismo porque sea dolor, sino porque a veces se dan las circunstancias de tal manera, que con esfuerzo y dolor puede obtener algún gran placer."
+        },
+        "included_segments": ["All"]
+      }`)
+    )
+      .then(done)
+      .catch((error: Error) => {
+        expect(error).to.be.a("error");
+        expect(error)
+          .has.property("message")
+          .with.a("string");
         expect(error).has.property("stack");
         done();
       });

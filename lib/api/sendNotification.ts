@@ -13,9 +13,9 @@ const URL: string = `${BASE_URL}/notifications`;
  * Send notification to users
  *
  * @export
- * @param {string} secretKey REST API key
- * @param {INotification} notification The notification to send
- * @returns {Promise<object>}
+ * @param secretKey REST API key
+ * @param notification The notification to send
+ * @returns Success or error response
  */
 export async function sendNotification(
   secretKey: string,
