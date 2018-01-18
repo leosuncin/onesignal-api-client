@@ -8,10 +8,10 @@ const URL: string = `${BASE_URL}/notifications`;
  * Stop a scheduled or currently outgoing notification
  *
  * @export
- * @param {string} secretKey REST API key
- * @param {string} appId Application identifier
- * @param {string} notificationId Notification identifier
- * @returns {Promise<object>}
+ * @param secretKey REST API key
+ * @param appId Application identifier
+ * @param string} notificationId Notification identifier
+ * @returns Success or error response
  */
 export async function cancelNotification(
   secretKey: string,

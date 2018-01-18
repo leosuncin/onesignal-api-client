@@ -25,9 +25,12 @@ describe("Make requests to OneSignal API", () => {
     cancelNotification = sinon.stub().resolves({ success: true });
     success = sinon.spy();
     fail = sinon.spy();
-    api = proxyquire.noCallThru().noPreserveCache().load("../lib/Client", {
-      api: { cancelNotification, sendNotification }
-    });
+    api = proxyquire
+      .noCallThru()
+      .noPreserveCache()
+      .load("../lib/Client", {
+        api: { cancelNotification, sendNotification }
+      });
   });
 
   it("Should fail if not application identifier or REST API key isn't passed", () => {
@@ -50,9 +53,14 @@ describe("Make requests to OneSignal API", () => {
       included_segments: ["All Users"]
     };
 
-    client.sendNotification(notification).then(success).catch(fail);
+    client
+      .sendNotification(notification)
+      .then(success)
+      .catch(fail);
 
-    expect(sendNotification.calledWith(secretKey, notification)).to.be.equal(
+    expect(
+      sendNotification.calledWith(secretKey, { ...notification, app_id: appId })
+    ).to.be.equal(
       true,
       `Expected to be called with ${secretKey} and ${notification}`
     );
@@ -74,7 +82,10 @@ describe("Make requests to OneSignal API", () => {
     const notificationId: string = "69cbefdb-b8b1-41c3-badf-03e3f6e3b386";
     const client: IRestApi = api.oneSignalApi(appId, secretKey);
 
-    client.cancelNotification(notificationId).then(success).catch(fail);
+    client
+      .cancelNotification(notificationId)
+      .then(success)
+      .catch(fail);
 
     expect(
       cancelNotification.calledWith(secretKey, appId, notificationId)

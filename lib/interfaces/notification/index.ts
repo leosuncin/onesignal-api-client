@@ -14,7 +14,6 @@ import { ISegments } from "interfaces/notification/ISegments";
  * Notification for segments.
  *
  * @export
- * @interface INotificationSegments
  * @extends {ISegments}
  * @extends {IContent}
  * @extends {IAttachments}
@@ -36,9 +35,6 @@ export interface INotificationSegments
   /**
    * An array of OneSignal app IDs. All users within these apps will receive at most one notification.
    * No targeting parameters may be used when using the `app_ids` parameter. All subscribed users will receive the notification.
-   *
-   * @type {string[]}
-   * @memberof INotificationSegments
    */
   app_ids?: string[];
 }
@@ -47,7 +43,6 @@ export interface INotificationSegments
  * Notification for filters
  *
  * @export
- * @interface INotificationFilters
  * @extends {IFilters}
  * @extends {IContent}
  * @extends {IAttachments}
@@ -69,9 +64,6 @@ export interface INotificationFilters
   /**
    * An array of OneSignal app IDs. All users within these apps will receive at most one notification.
    * No targeting parameters may be used when using the `app_ids` parameter. All subscribed users will receive the notification.
-   *
-   * @type {string[]}
-   * @memberof INotificationFilters
    */
   app_ids?: string[];
 }
@@ -80,7 +72,6 @@ export interface INotificationFilters
  * Notification for devices.
  *
  * @export
- * @interface INotificationDevices
  * @extends {IDevices}
  * @extends {IContent}
  * @extends {IAttachments}
@@ -102,9 +93,6 @@ export interface INotificationDevices
   /**
    * An array of OneSignal app IDs. All users within these apps will receive at most one notification.
    * No targeting parameters may be used when using the `app_ids` parameter. All subscribed users will receive the notification.
-   *
-   * @type {string[]}
-   * @memberof INotificationDevices
    */
   app_ids?: string[];
 }
@@ -113,7 +101,6 @@ export interface INotificationDevices
  * Notification for segments.
  *
  * @export
- * @interface INotificationSegmentsStrict
  * @extends {ICommon}
  * @extends {ISegments}
  * @extends {IContent}
@@ -139,7 +126,6 @@ export interface INotificationSegmentsStrict
  * Notification for filters
  *
  * @export
- * @interface INotificationFiltersStrict
  * @extends {ICommon}
  * @extends {IFilters}
  * @extends {IContent}
@@ -165,7 +151,6 @@ export interface INotificationFiltersStrict
  * Notification for devices.
  *
  * @export
- * @interface INotificationDevicesStrict
  * @extends {ICommon}
  * @extends {IDevices}
  * @extends {IContent}
