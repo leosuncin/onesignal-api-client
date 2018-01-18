@@ -2,9 +2,9 @@
   "name": "onesignal-api-client",
   "version": "0.0.0-development",
   "description": "Unofficial OneSignal API client for Node.js",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
+  "main": "dist/lib/Client.js",
+  "types": "dist/lib/Client.d.ts",
+  "typings": "dist/lib/Client.d.ts",
   "scripts": {
     "build": "tsc --pretty",
     "cz": "git-cz",
