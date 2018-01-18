@@ -9,7 +9,6 @@ import {
  * Closure for One Signal API
  *
  * @export
- * @interface IOneSignalApi
  */
 export interface IOneSignalApi {
   (appId: string, secretKey: string);
@@ -19,15 +18,13 @@ export interface IOneSignalApi {
  * OneSignal REST API methods
  *
  * @export
- * @interface IRestApi
  */
 export interface IRestApi {
   /**
    * Send notification to users
    *
-   * @param {INotification} notification The notification to send
-   * @returns {Promise<object>}
-   * @memberof IRestApi
+   * @param notification The notification to send
+   * @returns Success or error response
    */
   sendNotification(
     notification:
@@ -38,9 +35,8 @@ export interface IRestApi {
   /**
    * Stop a scheduled or currently outgoing notification
    *
-   * @param {string} notificationId Notification identifier
-   * @returns {Promise<object>}
-   * @memberof IRestApi
+   * @param notificationId Notification identifier
+   * @returns Success or error response
    */
   cancelNotification(notificationId: string): Promise<object>;
 }
@@ -49,9 +45,9 @@ export interface IRestApi {
  * OneSignal Rest API wrapper
  *
  * @export
- * @param {string} appId Application identifier
- * @param {string} secretKey REST API key
- * @returns {IRestApi}
+ * @param appId Application identifier
+ * @param secretKey REST API key
+ * @returns OneSignal API client
  */
 export function oneSignalApi(appId: string, secretKey: string): IRestApi {
   if (!appId) {
@@ -68,10 +64,7 @@ export function oneSignalApi(appId: string, secretKey: string): IRestApi {
         | INotificationFilters
         | INotificationSegments
     ): Promise<object> {
-      return sendNotification(
-        secretKey,
-        Object.assign(notification, { app_id: appId })
-      );
+      return sendNotification(secretKey, { ...notification, app_id: appId });
     },
     cancelNotification: cancelNotification.bind(null, secretKey, appId)
   };
