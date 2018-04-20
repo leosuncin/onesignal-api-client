@@ -8,9 +8,9 @@
       "resolved": "https://registry.npmjs.org/@sindresorhus/is/-/is-0.6.0.tgz"
     },
     "@types/got": {
-      "version": "7.1.6",
-      "from": "@types/got@>=7.1.1 <8.0.0",
-      "resolved": "https://registry.npmjs.org/@types/got/-/got-7.1.6.tgz"
+      "version": "8.3.0",
+      "from": "@types/got@^8.3.0",
+      "resolved": "https://registry.npmjs.org/@types/got/-/got-8.3.0.tgz"
     },
     "@types/node": {
       "version": "9.3.0",
