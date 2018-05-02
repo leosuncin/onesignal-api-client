@@ -42,7 +42,7 @@
   "homepage": "https://github.com/leosuncin/onesignal-api-client#readme",
   "dependencies": {
     "@types/got": "^8.3.0",
-    "@types/node": "^9.3.0",
+    "@types/node": "^10.0.3",
     "got": "^8.0.1"
   },
   "devDependencies": {
